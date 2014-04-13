@@ -1,3 +1,3 @@
 RESTfx
 ======
-This project is the REST client which was developed using Javafx technology.
+JavaFX based application to test RESTful web services.

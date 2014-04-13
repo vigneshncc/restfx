@@ -9,6 +9,7 @@ public class RestFXApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setScene(new Scene(null, 300, 275));
+        primaryStage.setFullScreen(true);
         primaryStage.show();
     }
 
