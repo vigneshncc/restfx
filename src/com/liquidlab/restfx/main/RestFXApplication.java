@@ -16,6 +16,9 @@
 
 package com.liquidlab.restfx.main;
 
+import com.liquidlab.restfx.layout.FooterLayout;
+import com.liquidlab.restfx.layout.HeaderLayout;
+import com.liquidlab.restfx.widget.ImageButton;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -58,15 +61,7 @@ public class RestFXApplication extends Application {
     }
 
     private HBox getHeader() {
-        HBox header = new HBox();
-        header.setMinHeight(40);
-        header.setStyle("-fx-background-color: #336699;");
-
-        Label headerLabel = new Label("RESTfx");
-        headerLabel.setStyle("-fx-font-color: white;");
-        header.getChildren().add(headerLabel);
-
-        return header;
+        return new HeaderLayout();
     }
 
     private BorderPane getBody() {
@@ -118,25 +113,22 @@ public class RestFXApplication extends Application {
     private FlowPane getBodyLeft() {
         FlowPane bodyLeftPane = new FlowPane();
         bodyLeftPane.setPadding(new Insets(5, 0, 5, 0));
-        bodyLeftPane.setVgap(4);
-        bodyLeftPane.setHgap(4);
+        bodyLeftPane.setVgap(10);
+        bodyLeftPane.setHgap(5);
         bodyLeftPane.setPrefWrapLength(70);
-        bodyLeftPane.setStyle("-fx-background-color: DAE6F3;");
+//        bodyLeftPane.setStyle("-fx-background-color: DAE6F3;");
 
-        ImageView requestImage = new ImageView(new Image(RestFXApplication.class.getResourceAsStream("images/request.png")));
-        bodyLeftPane.getChildren().add(requestImage);
+//        ImageView requestImage = new ImageView(new Image(RestFXApplication.class.getResourceAsStream("/com/liquidlab/restfx/images/request.png")));
+        bodyLeftPane.getChildren().add(new ImageButton("Request", null));
 
-        ImageView requestImage1 = new ImageView(new Image(RestFXApplication.class.getResourceAsStream("images/request.png")));
-        bodyLeftPane.getChildren().add(requestImage1);
+//        ImageView aboutImage = new ImageView(new Image(RestFXApplication.class.getResourceAsStream("/com/liquidlab/restfx/images/about.png")));
+        bodyLeftPane.getChildren().add(new ImageButton("About", null));
+//        bodyLeftPane.getChildren().add(aboutImage);
         return bodyLeftPane;
     }
 
     private HBox getFooter() {
-        HBox footer = new HBox();
-        footer.setMinHeight(40);
-        footer.setStyle("-fx-background-color: #336699;");
-        footer.getChildren().add(new Label("(C) Liquid Lab"));
-        return footer;
+        return new FooterLayout();
     }
 
     public static void main(String[] args) {
