@@ -61,17 +61,23 @@ public class RestFXApplication extends Application {
         return new HeaderLayout();
     }
 
-    private BorderPane getBody() {
-        BorderPane bodyPane = new BorderPane();
-
-        //Body left layout
-        bodyPane.setLeft(getBodyLeft());
-
-        //Body right layout
-        bodyPane.setRight(getBodyRight());
-
+    private HBox getBody() {
+        HBox bodyPane = new HBox();
+        bodyPane.getChildren().add(getBodyRight());
         return bodyPane;
     }
+
+//    private BorderPane getBody() {
+//        BorderPane bodyPane = new BorderPane();
+//
+//        //Body left layout
+////        bodyPane.setLeft(getBodyLeft());
+//
+//        //Body right layout
+//        bodyPane.setRight(getBodyRight());
+//
+//        return bodyPane;
+//    }
 
     private VBox getBodyRight() {
         return new ContentLayout();

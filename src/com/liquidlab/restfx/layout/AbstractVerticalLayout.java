@@ -28,13 +28,15 @@ public abstract class AbstractVerticalLayout extends VBox implements RESTFXLayou
         super();
         setLayoutPreference();
 
+        //renderUi method will render the appropriate ui
+        //method implementation will be supplied by subclasses
         renderUi();
     }
 
     private void setLayoutPreference() {
         setPadding(new Insets(10));
         setSpacing(5);
-        setPrefWidth(600);
+//        setPrefWidth(600);
         setAlignment(Pos.TOP_LEFT);
     }
 }

@@ -17,6 +17,7 @@
 package com.liquidlab.restfx.layout;
 
 import com.liquidlab.restfx.widget.VSpace;
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.scene.Group;
 import javafx.scene.Node;
