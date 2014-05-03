@@ -21,13 +21,19 @@ import com.liquidlab.restfx.layout.FooterLayout;
 import com.liquidlab.restfx.layout.HeaderLayout;
 import com.liquidlab.restfx.widget.ImageButton;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
+import java.io.IOException;
 
 /**
  * Entry point for the application
@@ -37,72 +43,22 @@ import javafx.stage.Stage;
 public class RestFXApplication extends Application {
 
     @Override
-    public void start(Stage primaryStage) {
-        primaryStage.setScene(getMainScene());
-//        primaryStage.setFullScreen(true);
+    public void init() {
+        //TODO: THAM: screen loader should be added
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Parent homeView = FXMLLoader.load(getClass().getResource("../layout/home.fxml"));
+
+        Scene scene = new Scene(homeView);
+        primaryStage.setScene(scene);
+
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();
     }
 
-    private Scene getMainScene() {
-        BorderPane borderPane = new BorderPane();
 
-        //Header Layout
-        borderPane.setTop(getHeader());
-
-        //Body Layout
-        borderPane.setCenter(getBody());
-
-        //Footer Layout
-        borderPane.setBottom(getFooter());
-        return new Scene(borderPane, 700, 500);
-    }
-
-    private HBox getHeader() {
-        return new HeaderLayout();
-    }
-
-    private HBox getBody() {
-        HBox bodyPane = new HBox();
-        bodyPane.getChildren().add(getBodyRight());
-        return bodyPane;
-    }
-
-//    private BorderPane getBody() {
-//        BorderPane bodyPane = new BorderPane();
-//
-//        //Body left layout
-////        bodyPane.setLeft(getBodyLeft());
-//
-//        //Body right layout
-//        bodyPane.setRight(getBodyRight());
-//
-//        return bodyPane;
-//    }
-
-    private VBox getBodyRight() {
-        return new ContentLayout();
-    }
-
-    private FlowPane getBodyLeft() {
-        FlowPane bodyLeftPane = new FlowPane();
-        bodyLeftPane.setPadding(new Insets(5, 0, 5, 0));
-        bodyLeftPane.setVgap(10);
-        bodyLeftPane.setHgap(5);
-        bodyLeftPane.setPrefWrapLength(70);
-//        bodyLeftPane.setStyle("-fx-background-color: DAE6F3;");
-
-//        ImageView requestImage = new ImageView(new Image(RestFXApplication.class.getResourceAsStream("/com/liquidlab/restfx/images/request.png")));
-        bodyLeftPane.getChildren().add(new ImageButton("Request", null));
-
-//        ImageView aboutImage = new ImageView(new Image(RestFXApplication.class.getResourceAsStream("/com/liquidlab/restfx/images/about.png")));
-        bodyLeftPane.getChildren().add(new ImageButton("About", null));
-//        bodyLeftPane.getChildren().add(aboutImage);
-        return bodyLeftPane;
-    }
-
-    private HBox getFooter() {
-        return new FooterLayout();
-    }
 
     public static void main(String[] args) {
         launch(args);

@@ -16,6 +16,7 @@
 
 package com.liquidlab.restfx.layout;
 
+import com.liquidlab.restfx.widget.RestTextField;
 import com.liquidlab.restfx.widget.VSpace;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -37,10 +38,12 @@ public class ContentLayout extends AbstractVerticalLayout {
     @Override
     public void renderUi() {
         //REST Url
-        getChildren().add(new Label("REST URL:"));
-        TextField pathField = new TextField();
-        pathField.setMinWidth(250);
-        getChildren().add(pathField);
+        RestTextField restTextField = new RestTextField("REST URL:");
+        getChildren().add(restTextField);
+//        getChildren().add(new Label("REST URL:"));
+//        TextField pathField = new TextField();
+//        pathField.setMinWidth(250);
+//        getChildren().add(pathField);
 
         //space
         getChildren().add(new VSpace());
