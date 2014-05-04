@@ -20,20 +20,33 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Window;
 
 /**
+ * Controller for home screen
+ *
  * @author tham
  */
 public class HomeController {
+
     @FXML
-    protected void onExit(KeyEvent event) {
-        System.out.println("Called");
-        Platform.exit();
+    protected void onNew(ActionEvent event) {
+        System.out.println("onNew clicked");
+    }
+
+    @FXML
+    protected void onSaved(ActionEvent event) {
+        System.out.println("onSaved clicked");
     }
 
     @FXML
     protected void onClose(ActionEvent event) {
         System.out.println("Called action");
         Platform.exit();
+    }
+
+    @FXML
+    protected void onAbout(ActionEvent event) {
+        System.out.println("onAbout clicked");
     }
 }

@@ -58,8 +58,6 @@ public class RestFXApplication extends Application {
         primaryStage.show();
     }
 
-
-
     public static void main(String[] args) {
         launch(args);
     }
