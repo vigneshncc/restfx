@@ -19,8 +19,6 @@ package com.liquidlab.restfx.controller;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.input.KeyEvent;
-import javafx.stage.Window;
 
 /**
  * Controller for home screen

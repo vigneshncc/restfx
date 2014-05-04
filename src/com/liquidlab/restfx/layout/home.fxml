@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-
 <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-border-color: #CCC;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.liquidlab.restfx.controller.HomeController">
 <children><VBox alignment="TOP_CENTER" spacing="20.0" style="-fx-border-color: #CCC; -fx-background-color: #CCC; -fx-border-radius: 15;">
 <children><Button mnemonicParsing="false" onAction="#onNew">
@@ -59,16 +57,20 @@
 </image>
 <HBox.margin>
 <Insets right="400.0" />
-</HBox.margin></ImageView><ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+</HBox.margin></ImageView><Button mnemonicParsing="false">
+<graphic><ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
 <image>
 <Image url="@../images/analytics.png" />
-</image></ImageView><ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+</image></ImageView>
+</graphic></Button><Button mnemonicParsing="false">
+<graphic><ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
 <image>
 <Image url="@../images/save.png" />
 </image>
 <HBox.margin>
 <Insets />
 </HBox.margin></ImageView>
+</graphic></Button>
 </children>
 <BorderPane.margin>
 <Insets left="10.0" />

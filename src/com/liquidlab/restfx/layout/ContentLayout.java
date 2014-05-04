@@ -18,12 +18,13 @@ package com.liquidlab.restfx.layout;
 
 import com.liquidlab.restfx.widget.RestTextField;
 import com.liquidlab.restfx.widget.VSpace;
-import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TitledPane;
 
 /**
  * Renders main content layout

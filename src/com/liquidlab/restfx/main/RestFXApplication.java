@@ -16,24 +16,12 @@
 
 package com.liquidlab.restfx.main;
 
-import com.liquidlab.restfx.layout.ContentLayout;
-import com.liquidlab.restfx.layout.FooterLayout;
-import com.liquidlab.restfx.layout.HeaderLayout;
-import com.liquidlab.restfx.widget.ImageButton;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
-import java.io.IOException;
 
 /**
  * Entry point for the application
