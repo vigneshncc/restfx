@@ -47,4 +47,9 @@ public class HomeController {
     protected void onAbout(ActionEvent event) {
         System.out.println("onAbout clicked");
     }
+
+    @FXML
+    protected void onChart(ActionEvent event) {
+        System.out.println("Onclicked called");
+    }
 }
