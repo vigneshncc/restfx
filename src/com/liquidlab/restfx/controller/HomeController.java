@@ -19,6 +19,7 @@ package com.liquidlab.restfx.controller;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.layout.BorderPane;
 
 /**
  * Controller for home screen
@@ -26,6 +27,12 @@ import javafx.fxml.FXML;
  * @author tham
  */
 public class HomeController {
+    @FXML
+    private BorderPane container;
+
+    public BorderPane getContainer() {
+        return container;
+    }
 
     @FXML
     protected void onNew(ActionEvent event) {
@@ -50,6 +57,6 @@ public class HomeController {
 
     @FXML
     protected void onChart(ActionEvent event) {
-        System.out.println("Onclicked called");
+        System.out.println("On clicked called");
     }
 }

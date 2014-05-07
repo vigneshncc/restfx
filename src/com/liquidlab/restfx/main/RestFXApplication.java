@@ -16,10 +16,16 @@
 
 package com.liquidlab.restfx.main;
 
+import com.liquidlab.restfx.controller.HomeController;
+import com.liquidlab.restfx.manager.Screen;
+import com.liquidlab.restfx.manager.ScreenControlManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -37,9 +43,23 @@ public class RestFXApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent homeView = FXMLLoader.load(getClass().getResource("../layout/home.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../layout/home.fxml"));
 
+        Parent homeView = loader.load();
         Scene scene = new Scene(homeView);
+
+        Object homeController = loader.getController();
+        if (homeController instanceof HomeController) {
+            BorderPane container = ((HomeController) homeController).getContainer();
+
+            ScreenControlManager screenControlManager = new ScreenControlManager();
+            screenControlManager.setAlignment(Pos.CENTER);
+            container.setCenter(screenControlManager);
+
+            screenControlManager.loadScreen(Screen.NEW, "../layout/sample.fxml");
+            screenControlManager.setScreen(Screen.NEW);
+        }
+
         primaryStage.setScene(scene);
 
         primaryStage.initStyle(StageStyle.UNDECORATED);
