@@ -22,7 +22,7 @@ import com.liquidlab.restfx.manager.ScreenController;
 /**
  * @author tham
  */
-public class SampleController implements ScreenController {
+public class SavedController implements ScreenController {
     private ScreenControlManager manager_;
 
     @Override

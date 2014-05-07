@@ -16,6 +16,8 @@
 
 package com.liquidlab.restfx.controller;
 
+import com.liquidlab.restfx.manager.Screen;
+import com.liquidlab.restfx.manager.ScreenControlManager;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,6 +29,8 @@ import javafx.scene.layout.BorderPane;
  * @author tham
  */
 public class HomeController {
+    private ScreenControlManager screenControlManager_;
+
     @FXML
     private BorderPane container;
 
@@ -41,7 +45,8 @@ public class HomeController {
 
     @FXML
     protected void onSaved(ActionEvent event) {
-        System.out.println("onSaved clicked");
+        screenControlManager_.setScreen(Screen.SAVED);
+
     }
 
     @FXML
@@ -58,5 +63,9 @@ public class HomeController {
     @FXML
     protected void onChart(ActionEvent event) {
         System.out.println("On clicked called");
+    }
+
+    public void setScreenControlManager(ScreenControlManager screenControlManager) {
+        screenControlManager_ = screenControlManager;
     }
 }

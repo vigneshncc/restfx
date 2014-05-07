@@ -49,21 +49,21 @@ public class RestFXApplication extends Application {
         Parent homeView = loader.load();
         Scene scene = new Scene(homeView);
 
-        Object homeController = loader.getController();
-        if (homeController instanceof HomeController) {
-            BorderPane container = ((HomeController) homeController).getContainer();
+        HomeController homeController = (HomeController)loader.getController();
+        BorderPane container = homeController.getContainer();
 
-            ScreenControlManager screenControlManager = new ScreenControlManager();
-            screenControlManager.setAlignment(Pos.CENTER);
-            container.setCenter(screenControlManager);
+        ScreenControlManager screenControlManager = new ScreenControlManager();
+        screenControlManager.setAlignment(Pos.CENTER);
+        container.setCenter(screenControlManager);
+        homeController.setScreenControlManager(screenControlManager);
 
-            screenControlManager.loadScreen(Screen.NEW, "../layout/sample.fxml");
-            screenControlManager.setScreen(Screen.NEW);
-        }
+        screenControlManager.loadScreen(Screen.NEW, LayoutConstant.NEW);
+        screenControlManager.loadScreen(Screen.SAVED, LayoutConstant.SAVED);
 
-        primaryStage.setScene(scene);
+        screenControlManager.setScreen(Screen.NEW);
 
         primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
