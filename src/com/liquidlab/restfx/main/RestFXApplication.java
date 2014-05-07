@@ -17,6 +17,7 @@
 package com.liquidlab.restfx.main;
 
 import com.liquidlab.restfx.controller.HomeController;
+import com.liquidlab.restfx.layout.LayoutConstant;
 import com.liquidlab.restfx.manager.Screen;
 import com.liquidlab.restfx.manager.ScreenControlManager;
 import javafx.application.Application;
@@ -43,7 +44,7 @@ public class RestFXApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../layout/home.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(LayoutConstant.HOME));
 
         Parent homeView = loader.load();
         Scene scene = new Scene(homeView);

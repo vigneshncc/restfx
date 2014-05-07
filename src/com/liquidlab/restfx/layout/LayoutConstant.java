@@ -21,4 +21,9 @@ package com.liquidlab.restfx.layout;
  */
 public interface LayoutConstant {
     double MIN_HEIGHT = 40;
+
+    //Layout name constant
+    String HOME = "../layout/home.fxml";
+    String NEW = "../layout/new.fxml";
+    String SAVED = "../layout/saved.fxml";
 }
