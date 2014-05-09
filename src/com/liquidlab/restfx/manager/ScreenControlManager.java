@@ -32,7 +32,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 /**
- * Handles the screens and its transitions
+ * Handles the screens and its navigation
  *
  * @author tham
  */

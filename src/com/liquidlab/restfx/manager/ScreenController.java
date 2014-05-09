@@ -17,8 +17,16 @@
 package com.liquidlab.restfx.manager;
 
 /**
+ * Interface for managing screens
+ *
  * @author tham
  */
 public interface ScreenController {
+
+    /**
+     * Sets the parent @ScreenControlManager into each screen controller for navigation
+     *
+     * @param manager
+     */
     void setParent(ScreenControlManager manager);
 }

@@ -24,7 +24,7 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
 
 /**
- * Controller for home screen
+ * Controller for home screen and handles button actions
  *
  * @author tham
  */
@@ -40,18 +40,16 @@ public class HomeController {
 
     @FXML
     protected void onNew(ActionEvent event) {
-        System.out.println("onNew clicked");
+        screenControlManager_.setScreen(Screen.NEW);
     }
 
     @FXML
     protected void onSaved(ActionEvent event) {
         screenControlManager_.setScreen(Screen.SAVED);
-
     }
 
     @FXML
     protected void onClose(ActionEvent event) {
-        System.out.println("Called action");
         Platform.exit();
     }
 
