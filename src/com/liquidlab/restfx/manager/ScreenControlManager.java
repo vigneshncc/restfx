@@ -16,6 +16,7 @@
 
 package com.liquidlab.restfx.manager;
 
+import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -43,15 +44,72 @@ public class ScreenControlManager extends StackPane {
         super();
     }
 
-    public void addScreen(Screen screen, Node node) {
+    /**
+     * Method to show the current screen in the main application
+     *
+     * @param screen
+     * @return true if successfully shown otherwise false
+     */
+    public boolean show(Screen screen) {
+        Node currentNode = getScreen(screen);
+
+        // Not added already in the stack
+        if (currentNode == null) {
+            currentNode = loadScreen(screen);
+        }
+
+        // current node should not be null. if null break further processing
+        if (currentNode == null) {
+            System.out.println("Screen with name " + screen.getView() + " is not available");
+            return false;
+        }
+
+        // Removes the current children
+        if (getChildren() != null && getChildren().size() > 0) {
+            getChildren().remove(0);
+        }
+
+        getChildren().add(currentNode);
+
+        //Animation to show the current screen
+        FadeTransition transition = new FadeTransition(Duration.millis(3000), currentNode);
+        transition.setFromValue(0.0);
+        transition.setToValue(1.0);
+        transition.play();
+
+        return true;
+    }
+
+    private Node loadScreen(Screen screen) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(screen.getView()));
+        Parent node = null;
+        try {
+            node = (Parent)loader.load();
+            ScreenController screenController = (ScreenController) loader.getController();
+            screenController.setParent(this);
+            addScreen(screen, node);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return node;
+    }
+
+    private void addScreen(Screen screen, Node node) {
         screens.put(screen, node);
     }
 
-    public Node getScreen(Screen screen) {
-        return screens.get(screen);
+    private Node getScreen(Screen screen) {
+        Node node = screens.get(screen);
+        if (node != null) {
+            return node;
+        }
+
+        return null;
     }
 
-    public boolean loadScreen(Screen screen, String name) {
+    /*public boolean loadScreen(Screen screen, String name) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(name));
         try {
             Parent parent = (Parent)loader.load();
@@ -65,9 +123,9 @@ public class ScreenControlManager extends StackPane {
         }
 
         return true;
-    }
+    }*/
 
-    public boolean setScreen(Screen screen) {
+    /*public boolean setScreen(Screen screen) {
         Node currentScreen = getScreen(screen);
         if (currentScreen == null) {
             return false;
@@ -101,5 +159,5 @@ public class ScreenControlManager extends StackPane {
 
         fade.play();
         return false;
-    }
+    }*/
 }

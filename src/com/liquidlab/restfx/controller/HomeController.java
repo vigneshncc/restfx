@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -18,52 +18,38 @@ package com.liquidlab.restfx.controller;
 
 import com.liquidlab.restfx.manager.Screen;
 import com.liquidlab.restfx.manager.ScreenControlManager;
+import com.liquidlab.restfx.util.View;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
 
 /**
- * Controller for home screen and handles button actions
- *
  * @author tham
  */
 public class HomeController {
     private ScreenControlManager screenControlManager_;
 
     @FXML
-    private BorderPane container;
+    private BorderPane mainContainer;
 
-    public BorderPane getContainer() {
-        return container;
+    public void setScreenControlManager(ScreenControlManager screenControlManager) {
+        screenControlManager_ = screenControlManager;
+    }
+
+    public BorderPane getMainContainer() {
+        return mainContainer;
     }
 
     @FXML
     protected void onNew(ActionEvent event) {
-        screenControlManager_.setScreen(Screen.NEW);
+//        screenControlManager_.loadScreen(Screen.NEW, View.NEW);
+//        screenControlManager_.setScreen(Screen.NEW);
+        screenControlManager_.show(Screen.NEW);
     }
 
     @FXML
-    protected void onSaved(ActionEvent event) {
-        screenControlManager_.setScreen(Screen.SAVED);
-    }
-
-    @FXML
-    protected void onClose(ActionEvent event) {
+    protected void onExit(ActionEvent event) {
         Platform.exit();
-    }
-
-    @FXML
-    protected void onAbout(ActionEvent event) {
-        System.out.println("onAbout clicked");
-    }
-
-    @FXML
-    protected void onChart(ActionEvent event) {
-        System.out.println("On clicked called");
-    }
-
-    public void setScreenControlManager(ScreenControlManager screenControlManager) {
-        screenControlManager_ = screenControlManager;
     }
 }

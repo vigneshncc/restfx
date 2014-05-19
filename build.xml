@@ -1,0 +1,24 @@
+<project name="restfx" default="deploy" basedir=".">
+    <taskdef resource="com/sun/javafx/tools/ant/antlib.xml"      
+            uri="javafx:com.sun.javafx.tools.ant"
+            classpath="C:/work/softwares/langs/java/java8/lib/ant-javafx.jar"/>
+
+    <property file="${basedir}/build.properties"/>
+
+    <target name="deploy" depends="jar" description="">
+    </target>
+
+    <target name="jar" depends="compile" description="">
+    </target>
+
+    <target name="compile" depends="clean" description="">
+        <mkdir dir="${dest.dir}" />
+        <javac fork="true" executable="C:/work/softwares/langs/java/java8/bin/javac"
+                srcdir="${src.dir}"
+                destdir="${dest.dir}" />
+    </target>
+
+    <target name="clean" description="">
+        <delete dir="${dest.dir}"/>
+    </target>
+</project>

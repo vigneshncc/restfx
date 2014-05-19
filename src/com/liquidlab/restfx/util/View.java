@@ -14,11 +14,17 @@
  * limitations under the License.
  */
 
-package com.liquidlab.restfx.layout;
+package com.liquidlab.restfx.util;
 
 /**
  * @author tham
  */
-public interface RESTFXLayout {
-    void renderUi();
+public interface View {
+    double MIN_HEIGHT = 40;
+
+    //Layout name constant
+    String ANALYTICS = "../view/analytics.fxml";
+    String HISTORY = "../view/history.fxml";
+    String HOME = "../view/home.fxml";
+    String NEW = "../view/new.fxml";
 }

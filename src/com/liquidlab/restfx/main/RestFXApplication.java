@@ -17,21 +17,21 @@
 package com.liquidlab.restfx.main;
 
 import com.liquidlab.restfx.controller.HomeController;
-import com.liquidlab.restfx.layout.LayoutConstant;
 import com.liquidlab.restfx.manager.Screen;
 import com.liquidlab.restfx.manager.ScreenControlManager;
+import com.liquidlab.restfx.util.View;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 /**
- * Entry point for the application
+ * Entry point for the RESTfx application
  *
  * @author tham
  */
@@ -44,24 +44,25 @@ public class RestFXApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(LayoutConstant.HOME));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(View.HOME));
 
         Parent homeView = loader.load();
         Scene scene = new Scene(homeView);
 
         HomeController homeController = (HomeController)loader.getController();
-        BorderPane container = homeController.getContainer();
+        BorderPane container = homeController.getMainContainer();
 
         ScreenControlManager screenControlManager = new ScreenControlManager();
-        screenControlManager.setAlignment(Pos.CENTER);
         container.setCenter(screenControlManager);
+        screenControlManager.setAlignment(Pos.CENTER);
         homeController.setScreenControlManager(screenControlManager);
 
-        screenControlManager.loadScreen(Screen.NEW, LayoutConstant.NEW);
-        screenControlManager.loadScreen(Screen.SAVED, LayoutConstant.SAVED);
+//        screenControlManager.loadScreen(Screen.NEW, View.NEW);
+//        screenControlManager.loadScreen(Screen.SAVED, ViewConstant.SAVED);
+//
+//        screenControlManager.setScreen(Screen.NEW);
 
-        screenControlManager.setScreen(Screen.NEW);
-
+        primaryStage.setFullScreen(true);
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(scene);
         primaryStage.show();

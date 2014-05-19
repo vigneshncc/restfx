@@ -16,12 +16,33 @@
 
 package com.liquidlab.restfx.manager;
 
+import com.liquidlab.restfx.util.View;
+
 /**
  * @author tham
  */
 public enum Screen {
-    HOME,
-    NEW,
-    SAVED,
-    ANALYTICS;
+    ANALYTICS (View.ANALYTICS),
+    HISTORY (View.HISTORY),
+    HOME (View.HOME),
+    NEW (View.NEW);
+
+    private String view;
+    private Screen(String view) {
+        this.view = view;
+    }
+
+    public String getView() {
+        return view;
+    }
+
+    public static Screen getScreen(String view) {
+        for (Screen screen : Screen.values()) {
+            if (screen.getView().equals(view)) {
+                return screen;
+            }
+        }
+
+        return null;
+    }
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="600.0" spacing="10.0" style="-fx-border-color: #CCF; -fx-background-color: #CCC;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.liquidlab.restfx.controller.NewController">
+<children><HBox alignment="CENTER" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" spacing="10.0" style="-fx-background-color: #FC6;" VBox.vgrow="ALWAYS">
+<children><Label minWidth="-Infinity" text="Base URL:" /><TextField minWidth="-Infinity" prefWidth="400.0" promptText="http://&lt;url&gt;:&lt;port&gt;/api/v1" /><Label minWidth="-Infinity" text="/" /><TextField minWidth="-Infinity" prefWidth="250.0" promptText="books" /><Hyperlink minWidth="-Infinity">
+<graphic><ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+<image>
+<Image url="@../images/configuration.png" />
+</image></ImageView>
+</graphic>
+<HBox.margin>
+<Insets left="50.0" />
+</HBox.margin></Hyperlink>
+</children>
+<padding>
+<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+</padding></HBox><TitledPane animated="false" text="Request Parameters">
+  <content>
+    <AnchorPane>
+<children><TabPane tabClosingPolicy="UNAVAILABLE">
+  <tabs>
+    <Tab text="Header">
+      <content>
+        <AnchorPane minHeight="0.0" />
+      </content>
+    </Tab>
+    <Tab text="Body">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
+</children></AnchorPane>
+  </content>
+<font>
+<Font name="System Bold" size="15.0" />
+</font>
+</TitledPane>
+</children></VBox>
