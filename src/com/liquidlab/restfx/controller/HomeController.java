@@ -18,7 +18,6 @@ package com.liquidlab.restfx.controller;
 
 import com.liquidlab.restfx.manager.Screen;
 import com.liquidlab.restfx.manager.ScreenControlManager;
-import com.liquidlab.restfx.util.View;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -43,9 +42,12 @@ public class HomeController {
 
     @FXML
     protected void onNew(ActionEvent event) {
-//        screenControlManager_.loadScreen(Screen.NEW, View.NEW);
-//        screenControlManager_.setScreen(Screen.NEW);
         screenControlManager_.show(Screen.NEW);
+    }
+
+    @FXML
+    protected void onHistory(ActionEvent event) {
+        screenControlManager_.show(Screen.HISTORY);
     }
 
     @FXML
