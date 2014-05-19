@@ -57,11 +57,6 @@ public class RestFXApplication extends Application {
         screenControlManager.setAlignment(Pos.CENTER);
         homeController.setScreenControlManager(screenControlManager);
 
-//        screenControlManager.loadScreen(Screen.NEW, View.NEW);
-//        screenControlManager.loadScreen(Screen.SAVED, ViewConstant.SAVED);
-//
-//        screenControlManager.setScreen(Screen.NEW);
-
         primaryStage.setFullScreen(true);
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(scene);
