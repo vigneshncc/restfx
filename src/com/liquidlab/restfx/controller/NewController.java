@@ -24,7 +24,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -51,6 +53,21 @@ public class NewController implements Initializable, ScreenController {
     private void renderHeaderGridUi() {
         headerGrid.getChildren().clear();
 
+        final ColumnConstraints firstColumnConstraints = new ColumnConstraints();
+        firstColumnConstraints.setPercentWidth(40);
+
+        final ColumnConstraints secondColumnConstraints = new ColumnConstraints();
+        secondColumnConstraints.setPercentWidth(40);
+
+        final ColumnConstraints thirdColumnConstraints = new ColumnConstraints();
+        thirdColumnConstraints.setPercentWidth(10);
+
+        final ColumnConstraints fourthColumnConstraints = new ColumnConstraints();
+        fourthColumnConstraints.setPercentWidth(10);
+
+//        headerGrid.getColumnConstraints().addAll(firstColumnConstraints, secondColumnConstraints,
+//                thirdColumnConstraints, fourthColumnConstraints);
+
         TextField keyField = new TextField();
         keyField.setPromptText("Enter a key");
         headerGrid.add(keyField, 0, 0);
@@ -59,9 +76,13 @@ public class NewController implements Initializable, ScreenController {
         valueField.setPromptText("Enter a value");
         headerGrid.add(valueField, 1, 0);
 
-        //Plus image view
-        ImageView plusImage = new ImageView(new Image(
-                RestFXApplication.class.getResourceAsStream("/com/liquidlab/restfx/images/plus.png")));
-        headerGrid.add(plusImage, 2, 0);
+        //Add image view
+        ImageView addImage = new ImageView(new Image(
+                RestFXApplication.class.getResourceAsStream("/com/liquidlab/restfx/images/add.png")));
+        headerGrid.add(addImage, 2, 0);
+
+        ImageView removeImage = new ImageView(new Image(
+                RestFXApplication.class.getResourceAsStream("/com/liquidlab/restfx/images/remove.png")));
+        headerGrid.add(removeImage, 3, 0);
     }
 }
